@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insights</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Popular Routes</h2>
+    <canvas id="routeChart" width="400" height="200"></canvas>
+    <script>
+    const ctx = document.getElementById('routeChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ labels | safe }},
+            datasets: [{
+                label: 'Top Routes',
+                data: {{ values | safe }},
+                backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            }]
+        }
+    });
+    </script>
+</body>
+</html>
